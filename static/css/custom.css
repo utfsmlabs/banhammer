@@ -1,0 +1,30 @@
+.banhammer {
+    color: #000;
+}
+
+.banhammer a {
+    color: #000;
+}
+
+.banhammer-logo {
+    display: inline-block;
+    width: 24px;
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea[name="because"] {
+    height: 5em;
+}
+
+.pull-top {
+    display: inline;
+    vertical-align: top;
+}
+
+.banlist {
+    margin-top: 1em;
+}
