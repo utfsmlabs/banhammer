@@ -28,3 +28,8 @@ textarea[name="because"] {
 .banlist {
     margin-top: 1em;
 }
+
+.banned-image {
+    max-height: 250px;
+    width: auto;
+}

@@ -1,7 +1,7 @@
 .row
     .col-md-6.col-md-offset-3
         %p.text-center
-            %img{:src => '/static/images/hammers/hammer1.jpg'}
+            %img.banned-image{:src => @image}
         :markdown
             El usuario **#{@ban.username}** ha sido baneado por la siguiente causa:
             > #{@ban.because}
