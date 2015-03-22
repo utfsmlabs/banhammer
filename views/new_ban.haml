@@ -1,0 +1,39 @@
+.row
+    .col-md-6.col-md-offset-3
+        %h2
+            Nuevo Ban
+            %small
+                Thy banhammer will fall
+
+        %form{:method => 'post', :autocomplete => 'off'}
+            .row
+                .col-md-6
+                    .form-group
+                        %label.control-label{:for => 'username'} Usuario a banear
+                        %input#username.form-control{:name => 'username', :type => 'text'}
+                .col-md-6
+                    .form-group
+                        %label.control-label{:for => 'duration'} Duración del Baneo
+                        .input-group
+                            %input#duration.form-control{:type => 'number', :name => 'duration', :min => 1, :value => 5}
+                            %span.input-group-addon dia(s)
+            .row
+                .col-md-12
+                    .form-group
+                        %label.control-label{:for => 'because'} Motivo
+                        %textarea#because.form-control{:name => 'because'}
+            %h4 Confirmar ban
+            .row
+                .col-md-6
+                    .form-group
+                        %label.control-label{:for => 'admin_username'} Usuario
+                        %input#admin_username.form-control{:name => 'admin_username', :type => 'text'}
+                .col-md-6
+                    .form-group
+                        %label.control-label{:for => 'admin_password'} Contraseña
+                        %input#admin_password.form-control{:name => 'admin_password', :type => 'password'}
+            .row
+                .text-center
+                    .btn-group{ :role => 'group' }
+                        %button.btn.btn-primary{ :type => 'submit' } DROP THE BANHAMMER!
+                        %a.btn.btn-info{ :href => '/' } Cancelar

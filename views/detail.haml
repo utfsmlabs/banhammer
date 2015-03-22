@@ -1,0 +1,22 @@
+.row
+    .col-md-8.col-md-offset-2
+        %h2
+            Baneos de #{@user_detail[0]}
+            %small #{@user_detail[1]} en total
+
+        %table.table.table-striped.table-hover.banlist
+            %tr
+                %th Motivo
+                %th Baneado por
+                %th Fecha de Baneo
+                %th Duración
+            - @bans.each do |ban|
+                %tr
+                    %td #{ban.because}
+                    %td #{ban.banned_by}
+                    %td #{ban.ban_date.strftime '%d/%m/%Y'}
+                    %td #{ban.ban_until.strftime '%d/%m/%Y'}
+
+        .text-center
+            %a.btn.btn-primary{:href=>'/'} Volver al inicio
+

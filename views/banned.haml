@@ -1,0 +1,13 @@
+.row
+    .col-md-6.col-md-offset-3
+        %p.text-center
+            %img{:src => '/static/images/hammers/hammer1.jpg'}
+        :markdown
+            El usuario **#{@ban.username}** ha sido baneado por la siguiente causa:
+            > #{@ban.because}
+
+            El usuario fue baneado por **#{@ban.banned_by}** y su baneo se levantará el dia **#{@ban.ban_until.strftime("%d/%m/%Y")}**
+        %p La contraseña será revelada cuando se levante el ban.
+
+        .text-center
+            %a.btn.btn-primary{:href=>'/'} Volver al inicio

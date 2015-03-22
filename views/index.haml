@@ -1,0 +1,36 @@
+.row
+    .col-md-4.col-md-offset-2
+        %h2.pull-top Próximos a ser desbaneados
+    .col-md-4
+        %form{:action => '/ban/query', :method => 'get'}
+            .input-group.input-group-sm
+                .input-group-btn
+                    %a.btn.btn-primary{:href => '/ban/new'} Nuevo ban
+                %input#username.form-control{:name => 'user', :placeholder => 'Nombre de usuario'}
+                .input-group-btn
+                    %button.btn.btn-info{:action => 'submit'} Buscar baneos
+
+.row
+    .col-md-8.col-md-offset-2
+        %table.table.table-striped.table-hover.banlist
+            %tr
+                %th Usuario
+                %th Fecha de Baneo
+                %th Hasta
+                %th Baneado por
+            - unless @bans.count > 0
+                %tr
+                    %td.text-center{:colspan => 4}
+                        %h4 No existen baneados en el sistema D:
+            - else
+                - @bans.each do |ban|
+                    %tr
+                        %td
+                            %a{:href => "/ban/query?user=#{ban.username}"} #{ban.username}
+                        %td #{ban.ban_date.strftime '%d/%m/%Y'}
+                        %td #{ban.ban_until.strftime '%d/%m/%Y'}
+                        %td #{ban.banned_by}
+                %tr
+                    %td.text-center{:colspan => 4}
+                        %a{:href => '/bans/all'} Lista completa de baneados.
+
