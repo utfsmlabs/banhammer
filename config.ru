@@ -7,6 +7,7 @@ require 'net/ldap'
 require 'reform'
 require 'reform/form'
 require 'token_phrase'
+require 'dm-pager'
 
 Cuba.plugin Cuba::Render
 
@@ -16,7 +17,6 @@ Cuba.settings[:production] = false #Make true when is in production
 use Rack::Static, :urls => ['/static/']
 
 Reform::Form.reform_2_0!
-
 
 require './app'
 

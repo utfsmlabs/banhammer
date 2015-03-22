@@ -24,6 +24,14 @@ Cuba.define do
             end
         end
 
+        on 'all' do
+            on get do
+                bans_per_page = Cuba.settings[:banhammer]["Pagination"]["bans_per_page"]
+                @bans = Ban.all(:unbanned => false).page(req.params[:page] || 1, :per_page => bans_per_page)
+                render 'ban_list'
+            end
+        end
+
         on 'new' do
             @ban_form = BanForm.new(Ban.new)
             on get do
