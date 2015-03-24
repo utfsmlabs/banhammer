@@ -27,7 +27,7 @@ Cuba.define do
         on 'all' do
             on get do
                 bans_per_page = Cuba.settings[:banhammer]["Pagination"]["bans_per_page"]
-                @bans = Ban.all(:unbanned => false).page(req.params[:page] || 1, :per_page => bans_per_page)
+                @bans = Ban.page(req.params[:page] || 1, :per_page => bans_per_page)
                 render 'ban_list'
             end
         end
@@ -52,7 +52,7 @@ Cuba.define do
                             halt(res.finish)
                         end
 
-                        ldap_clt = Net::LDAP.new :host => ldap_cfg['hostname'], :port => ldap_cfg['port']
+                        ldap_clt = Net::LDAP.new :host => ldap_cfg['server'], :port => ldap_cfg['port']
 
                         admin_filter = Net::LDAP::Filter.eq 'uid', form[:banned_by]
                         user_filter = Net::LDAP::Filter.eq 'uid', form[:username]
