@@ -11,5 +11,6 @@ gem 'reform'
 gem 'token_phrase'
 gem 'redcarpet'
 gem 'dm-pager'
+gem 'encrypted_cookie'
 
 gem 'rerun', :group => :development

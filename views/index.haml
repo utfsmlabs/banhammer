@@ -4,8 +4,6 @@
     .col-md-4
         %form{:action => '/ban/query', :method => 'get'}
             .input-group.input-group-sm
-                .input-group-btn
-                    %a.btn.btn-primary{:href => '/ban/new'} Nuevo ban
                 %input#username.form-control{:name => 'user', :placeholder => 'Nombre de usuario'}
                 .input-group-btn
                     %button.btn.btn-info{:action => 'submit'} Buscar baneos

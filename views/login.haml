@@ -1,0 +1,15 @@
+.row
+    .col-md-4.col-md-offset-4
+        %h2
+            Inicie sesión
+            %small Prove your worth.
+        %form{:method => 'post', :autocomplete => 'off'}
+            .form-group
+                %label.control-label{:for => 'username'} Usuario
+                %input#username.form-control{:name => 'username', :type => 'text'}
+            .form-group
+                %label.control-label{:for => 'password'} Contraseña
+                %input#password.form-control{:name => 'password', :type => 'password'}
+            .form-group.text-center
+                %button.btn.btn-primary{:type => 'submit'} Iniciar sesión
+            = this.csrf.form_tag

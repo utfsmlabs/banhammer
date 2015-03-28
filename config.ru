@@ -8,6 +8,8 @@ require 'reform'
 require 'reform/form'
 require 'token_phrase'
 require 'dm-pager'
+require 'encrypted_cookie'
+require 'cuba/safe'
 
 Cuba.plugin Cuba::Render
 

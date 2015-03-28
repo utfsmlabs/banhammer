@@ -3,6 +3,7 @@
     %head
         %title BanHammer
         %meta{:charset => 'utf-8'}
+        = this.csrf.meta_tag
         %link{:href => '/static/css/bootstrap.css', :rel => 'stylesheet'}
         %link{:href => '/static/css/custom.css', :rel => 'stylesheet'}
 
@@ -14,6 +15,18 @@
                         %a{:href => '/'}
                             %img{:class => 'banhammer-logo', :src => '/static/images/banhammer.png'}
                             BanHammer
+                    - if session[:admin]
+                        .row
+                            .col-md-8.col-md-offset-2
+                                %ul.nav.nav-pills.nav-justified
+                                    %li
+                                        %a{:href => '/'} Página Inicial
+                                    %li
+                                        %a{:href => '/ban/new'} Nuevo ban
+                                    %li
+                                        %a{:href => '/ban/all'} Historial baneos
+                                    %li
+                                        %a{:href => '/logout'} Cerrar Sesión
             .row
                 .col-md-8.col-md-offset-2
                     - if @error_message
