@@ -12,6 +12,10 @@
     vertical-align: middle;
 }
 
+.header {
+    margin-bottom: 1.5em;
+}
+
 textarea {
     resize: none;
 }
@@ -26,7 +30,7 @@ textarea[name="because"] {
 }
 
 .banlist {
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .banned-image {

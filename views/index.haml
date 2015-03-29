@@ -1,13 +1,6 @@
 .row
-    .col-md-4.col-md-offset-2
-        %h2.pull-top Próximos a ser desbaneados
-    .col-md-4
-        %form{:action => '/ban/query', :method => 'get'}
-            .input-group.input-group-sm
-                %input#username.form-control{:name => 'user', :placeholder => 'Nombre de usuario'}
-                .input-group-btn
-                    %button.btn.btn-info{:action => 'submit'} Buscar baneos
-
+    .col-md-8.col-md-offset-2
+        %h2 Próximos a ser desbaneados
 .row
     .col-md-8.col-md-offset-2
         %table.table.table-striped.table-hover.banlist

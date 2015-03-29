@@ -11,18 +11,18 @@ Ban.define do
         on get, param("user") do |user|
             @user_detail = Ban.aggregate(:username, :all.count, :username => user)
             if @user_detail.count == 0
-                res.redirect '/'
-                halt(res.finish)
+                @info_message = "El usuario #{user} no tiene baneos registrados"
+                render 'query'
+            else
+                @user_detail = @user_detail[0]
+                @bans = Ban.all(:fields => [:id, :because, :ban_date, :ban_until, :banned_by],
+                                :username => user, :order => [ :ban_date.desc, :ban_until.desc ])
+                render 'detail'
             end
-        @user_detail = @user_detail[0]
-            @bans = Ban.all(:fields => [:id, :because, :ban_date, :ban_until, :banned_by],
-                            :username => user, :order => [ :ban_date.desc, :ban_until.desc ])
-            puts @user_detail
-            render 'detail'
         end
 
         on get do
-            res.redirect '/'
+            render 'query'
         end
     end
 

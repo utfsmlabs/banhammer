@@ -9,28 +9,33 @@
 
     %body
         .container-fluid
-            .row
-                .page-header
-                    %h1.text-center.banhammer
-                        %a{:href => '/'}
-                            %img{:class => 'banhammer-logo', :src => '/static/images/banhammer.png'}
-                            BanHammer
-                    - if session[:admin]
-                        .row
-                            .col-md-8.col-md-offset-2
-                                %ul.nav.nav-pills.nav-justified
-                                    %li
-                                        %a{:href => '/'} Página Inicial
-                                    %li
-                                        %a{:href => '/ban/new'} Nuevo ban
-                                    %li
-                                        %a{:href => '/ban/all'} Historial baneos
-                                    %li
-                                        %a{:href => '/logout'} Cerrar Sesión
+            .row.header
+                %h1.text-center.banhammer
+                    %a{:href => '/'}
+                        %img{:class => 'banhammer-logo', :src => '/static/images/banhammer.png'}
+                        BanHammer
+                - if session[:admin]
+                    .row
+                        .col-md-8.col-md-offset-2
+                            %ul.nav.nav-tabs.nav-justified
+                                %li
+                                    %a{:href => '/'} Página Inicial
+                                %li
+                                    %a{:href => '/ban/new'} Nuevo ban
+                                %li
+                                    %a{:href => '/ban/all'} Historial baneos
+                                %li
+                                    %a{:href => '/ban/query'} Buscar usuario
+                                %li
+                                    %a{:href => '/logout'} Cerrar Sesión
             .row
                 .col-md-8.col-md-offset-2
                     - if @error_message
                         .alert.alert-danger
                             %strong Error:
                             = @error_message
+                    - if @info_message
+                        .alert.alert-info
+                            %strong Hey hey hey:
+                            = @info_message
             = content

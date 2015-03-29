@@ -4,7 +4,7 @@ Cuba.define do
         csrf.reset!
         res.status = 403
         res.redirect 'https://jurassicsystems.com/theking'
-
+        #You didn't say the magic word
         halt(res.finish)
     end
 
