@@ -20,7 +20,6 @@ Login.define do
             primos = Cuba.settings[:banhammer]['Primos']
 
             @login_form.save do |form|
-                puts 'Holi'
                 ldap_clt = Net::LDAP.new :host => ldap_cfg['server'], :port => ldap_cfg['port']
                 filter = Net::LDAP::Filter.eq 'uid', form[:username]
 
@@ -38,11 +37,9 @@ Login.define do
 
                 ldap_clt.auth user_dn, form[:password]
                 unless ldap_clt.bind
-                    puts 'Holi'
                     @error_message = "Revisa bien la contraseña. Quizás fuiste baneado."
                     res.status = 401
                     render 'login'
-                    puts 'Holi'
                     halt(res.finish)
                 else
                     session[:admin] = form[:username]

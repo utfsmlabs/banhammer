@@ -17,7 +17,11 @@ Cuba.define do
     end
 
     on 'login' do
-        run Login
+        unless session[:admin]
+            run Login
+        else
+            res.redirect '/ban'
+        end
     end
 
     on 'logout' do
