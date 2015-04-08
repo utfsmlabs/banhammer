@@ -1,24 +1,22 @@
 .row
     .col-md-8.col-md-offset-2
-        %h2.pull-top Historial de baneos
+        %h2 Historial de baneos
         %table.table.table-striped.table-hover.banlist
             %tr
                 %th Usuario
-                %th Motivo
                 %th Baneado por
                 %th Fecha baneo
                 %th Fecha desbaneo
                 %th Cumplió?
             - unless @bans.count > 0
                 %tr
-                    %td.text-center{:colspan => 4}
+                    %td.text-center{:colspan => 6}
                         %h4 No existen baneados en el sistema D:
             - else
                 - @bans.each do |ban|
                     %tr
                         %td
                             %a{:href => "/ban/query?user=#{ban.username}"} #{ban.username}
-                        %td #{ban.because}
                         %td #{ban.banned_by}
                         %td #{ban.ban_date.strftime '%d/%m/%Y'}
                         %td #{ban.ban_until.strftime '%d/%m/%Y'}

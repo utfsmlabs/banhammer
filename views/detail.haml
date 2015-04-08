@@ -10,12 +10,21 @@
                 %th Baneado por
                 %th Fecha de Baneo
                 %th Duración
+                %th Vigente?
             - @bans.each do |ban|
                 %tr
                     %td #{ban.because}
                     %td #{ban.banned_by}
                     %td #{ban.ban_date.strftime '%d/%m/%Y'}
                     %td #{ban.ban_until.strftime '%d/%m/%Y'}
+                    %td
+                        -unless ban.unbanned
+                            Si
+                            %small
+                                %a{:href => "/ban/lift/#{@user_detail[0]}"}Levantar ban
+                        -else
+                            No
+
 
         .text-center
             %a.btn.btn-primary{:href=>'/'} Volver al inicio

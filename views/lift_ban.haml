@@ -1,0 +1,19 @@
+.row
+    .col-md-8.col-md-offset-2
+        %h2 Levantar ban
+        :markdown
+            ###¿Seguro que quiere levantar el ban de __#{@banned_user.username}__?
+
+
+            Recuerde que éste usuario fue baneado por el siguiente motivo:
+            > #{@banned_user.because}
+
+            Desde el dia **#{@banned_user.ban_date.strftime '%d/%m/%Y'}** hasta el dia **#{@banned_user.ban_until.strftime '%d/%m/%Y'}** por **#{@banned_user.banned_by}**
+
+
+        %form{:method => 'post'}
+            .text-center
+                %button.btn.btn-danger{:type => 'submit'} Si, hay que perdonar
+                %a.btn.btn-primary{:href=>"/ban"} No, debe seguir sufriendo
+            =this.csrf.form_tag
+
