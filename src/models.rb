@@ -15,6 +15,7 @@ class Ban
     property :ban_date, DateTime, :default => DateTime.now
     property :ban_until, DateTime
     property :replacement_password, String
+    property :current_password, String
     property :banned_by, String
     property :because, String
     property :unbanned, Boolean, :default => false
